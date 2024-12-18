@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Da Percia</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1c1c1c, #0e0e0e);
+            color: #f3f3f3;
+            min-height: 100vh;
+        }
+
+        /* Tornando o cabeçalho fixo no topo */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #272626; /* Altere conforme o seu design */
+  box-shadow: 0 4px 2px -2px rgb(236, 9, 180); /* Adiciona sombra para dar destaque */
+  z-index: 1000; /* Garante que o cabeçalho fique acima do conteúdo */
+  padding: 10px 20px; /* Adiciona espaçamento dentro do cabeçalho */
+}
+
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            color: #ff4081;
+        }
+
+        h2 {
+    font-size: 2.8rem;
+    color: #ff4081;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #ff4081;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+h3 {
+    font-size: 1.8rem;
+    color: #f3f3f3;
+    margin-top: 15px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+        #home {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 80px 50px;
+            text-align: left;
+        }
+
+        #home img {
+            max-width: 300px;
+            border-radius: 10px;
+        }
+
+        #home h2 {
+            color: #ff4081;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        #home p {
+            margin: 20px 0;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            background: rgba(255, 63, 158, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 5px rgba(255, 63, 158, 0.2);
+        }
+        .more-about {
+            margin-top: 20px;
+        }
+
+        .more-about a {
+            display: inline-block;
+            text-decoration: none;
+            background: #ff4081;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+        }
+
+        .more-about a:hover {
+            background: #e3366b;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: left;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: #ff4081;
+            font-size: 1.8rem;
+            transition: transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        #habilidades {
+            padding: 80px 50px;
+            text-align: center;
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .skill-card {
+            background: #444;
+            padding: 20px;
+            border-radius: 10px;
+            width: 150px;
+            text-align: center;
+        }
+
+        .skill-card i {
+            font-size: 3rem;
+            color: #ff4081;
+        }
+
+        .skill-card h3 {
+            margin-top: 15px;
+            font-size: 1.2rem;
+        }
+
+        #projetos {
+            padding: 80px 50px;
+            text-align: center;
+        }
+
+        .project-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .project {
+            background: #444;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+        }
+
+        .project img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .project h3 {
+            font-size: 1.5rem;
+            color: #ff4081;
+            margin-top: 15px;
+            text-transform: uppercase;
+        }
+
+        .project p {
+            font-size: 1.1rem;
+            color: #f3f3f3;
+            line-height: 1.6;
+            margin-top: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+        }
+
+        #sobre {
+            padding: 80px 50px;
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        #sobre img {
+            max-width: 250px;
+            border-radius: 10px;
+        }
+
+        #sobre p {
+            line-height: 1.6;
+        }
+
+        #contato {
+            padding: 80px 50px;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        form input, form textarea, form button {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        form button {
+            background: #ff4081;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background: #e3366b;
+        }
+
+        footer {
+            background: #222;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Percia Castigo</h1>
+        <nav>
+            <a href="#home">Início</a>
+            <a href="#habilidades">Habilidades</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#sobre">Sobre Mim</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    
+    <section id="home">
+        <div>
+            <h2>Bem-vindo ao Meu Portfólio</h2>
+            <p>Sou uma criadora de experiências digitais, unindo design, tecnologia e criatividade para trazer ideias à vida. Aqui, você descobrirá meus trabalhos e habilidades que tornam cada projeto único e especial.</p>
+            <div class="more-about">
+                <a href="#sobre">Mais Sobre Mim</a>
+            </div>
+            <div class="social-icons">
+                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <img src="c:\Users\Hot souce\Desktop\percia portfolio\IMG-20241216-WA0003.jpg" alt="Foto de Percia">
+    </section>
+
+    <section id="habilidades">
+        <h2>Minhas Habilidades</h2>
+        <div class="skills-container">
+            <div class="skill-card">
+                <i class="fab fa-html5"></i>
+                <h3>HTML</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-css3-alt"></i>
+                <h3>CSS</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-js"></i>
+                <h3>JavaScript</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="projetos">
+        <h2>Meus Projetos</h2>
+        <div class="project-list">
+            <div class="project">
+                <img src="c:\Users\Hot souce\Downloads\Friender_..your organic marketing best friend!" alt="Projeto 1">
+                <h3>Projeto 1</h3>
+                <p>Um site para uma organização fictícia, destacando seus serviços e equipe, com uma seção de blog dinâmica.</p>
+            </div>
+            <div class="project">
+                <img src="c:\Users\Hot souce\Downloads\Start your online world journey with us.jfif" alt="Projeto 2">
+                <h3>Projeto 2</h3>
+                <p>Desenvolvimento de um protótipo funcional de uma loja virtual, incluindo um carrinho de compras e integração com pagamento simulado.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre">
+        <img src="c:\Users\Hot souce\Desktop\percia portfolio\IMG-20241216-WA0003.jpg" alt="Foto de Percia">
+        <div>
+            <h2>Sobre Mim</h2>
+            <p>
+                <strong>Olá!</strong> Sou <span style="color: #ff4081; font-weight: bold;">Percia Castigo</span>, uma desenvolvedora web apaixonada por transformar ideias em <span style="text-decoration: underline;">experiências digitais incríveis</span>. 
+                Meu foco está em criar projetos que combinem <span style="font-style: italic;">design moderno</span> e usabilidade prática.
+            </p>
+            <p>
+                Atuo explorando tecnologias como HTML, CSS e JavaScript, sempre buscando novas tendências no desenvolvimento web. 
+                Cada desafio que encontro é uma oportunidade de aprendizado e crescimento.
+            </p>
+            <p>
+                Acredito no poder da tecnologia para conectar pessoas e criar impacto positivo. Vamos juntos construir algo extraordinário?
+            </p>
+        </div>
+    </section>
+    
+    <section id="contato">
+        <h2>Entre em Contato</h2>
+        <form>
+            <input type="text" placeholder="Nome" required>
+            <input type="email" placeholder="Email" required>
+            <textarea rows="5" placeholder="Mensagem" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        © 2024 Percia Mabota - Todos os direitos reservados.
+    </footer>
+</body>
+</html>
